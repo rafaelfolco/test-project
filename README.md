@@ -55,8 +55,12 @@ The CI/CD PoC was implemented using the following components:
 - [x] AWS Codepipeline
 - [x] AWS CodeBuild
 - [x] AWS CodeDeploy
-- [x] AWS EC2 Instance (t2.micro)*
-*EC2 Ansible module used to deploy the EC2 instance: https://github.com/rafaelfolco/ansible-aws-deploy
+- [x] AWS EC2 Instance (t2.micro)
+
+EC2 Ansible module used to deploy the EC2 instance: https://github.com/rafaelfolco/ansible-aws-deploy
+```
+ansible-playbook -i inventory/hosts playbooks/aws-deploy.yml 
+```
 
 ### Gate Pipeline
 For the sake of simplicity, only the "gate" pipeline has been implemented in this demo.
