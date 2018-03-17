@@ -17,5 +17,5 @@ artifacts:
   files:
     - src/*
     - tests/*
-    - *.yml
     - deploy/*
+    - appspec.yml
