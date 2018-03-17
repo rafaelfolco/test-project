@@ -10,6 +10,8 @@ Typical CI/CD Pipeline
 1. TEST
 1. DEPLOY
 
+If any of these stages fail, the code can't be merged.  
+
 ### Source
 Pull test-project from GitHub.
 
@@ -20,6 +22,15 @@ On AWS CodeBuild, build the source using steps defined in buildspec.yml.
 ### Test
 Run unit/functional/integration tests. Automated checks can accelerate code development process.
 Reviews can be done when these syntax/linters/basic-code-checks pass so we don't waste developers' time. 
+This sample project includes a single unit test that can be run in the *TEST* stage.
+```
+$ python src/HelloWorld_tst.py 
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+```
 
 ### Deploy
 Deploy the code in the cloud. Deployment stage is critical as it ensures the stack is elastic, that is, it can expand and shrink its instances. In a very dynamic environment, deploy stage can verify that the stack scales up/down due to transaction load peaks. For database instances running on RDS, for instance, one can verify how database can scale vertically and horizontally in the cloud:
@@ -39,7 +50,7 @@ Ensure the code builds and tests run against submitted/proposed changes before a
 Ensure the merged change doesn't break anything. It's not so unusual to developers having to revert merged changes even after running all CI tests. Integration tests help to mitigate this issue. 
 
 ## Implementation Proof-Of-Concept (PoC)
-To demonstrate a full CI/CD pipeline implementation, an AWS CodePipeline has been created. The creation steps are not described in this document and can be easily found at the AWS documentation online.  
+To demonstrate a full CI/CD pipeline implementation, an AWS CodePipeline has been created using the console's wizard. The creation steps are not described in this document and can be easily found at the AWS documentation online. Refer to the AWS portal for more details. 
 The CI/CD PoC was implemented using the following components:
 - [x] AWS Codepipeline
 - [x] AWS CodeBuild
