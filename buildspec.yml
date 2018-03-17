@@ -1,4 +1,4 @@
-version: 0.1
+version: 0.2
 
 phases:
   build:
@@ -9,9 +9,13 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - echo Tests started on `date`
+      - echo Running unit tests...
+      - python src/HelloWorld_tst.py
+      - echo Tests completed on `date`
 artifacts:
   files:
     - src/*
     - tests/*
-    - *.yml
     - deploy/*
+    - appspec.yml
