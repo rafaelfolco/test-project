@@ -1,0 +1,17 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Python code...
+      - python src/HelloWorld.py
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - src/*
+    - tests/*
+    - *.yml
+    - deploy/*
