@@ -11,7 +11,7 @@ phases:
       - echo Build completed on `date`
       - echo Tests started on `date`
       - echo Running unit tests...
-      - python tests/HelloWorld_tst.py
+      - python src/HelloWorld_tst.py
       - echo Tests completed on `date`
 artifacts:
   files:
